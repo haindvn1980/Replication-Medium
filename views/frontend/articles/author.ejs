@@ -1,0 +1,115 @@
+<%- include('../header.ejs')%>
+<!--------------------------------------
+HEADER
+--------------------------------------->
+<div class="user-info">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-10 offset-md-1">
+        <div class="avatar">
+          <img class="avatar-image" src="../images/<%=authorUser.profile.picture%>" i>
+        </div>
+        <h4 class="ng-binding">
+          <%
+          if (typeof authorUser.profile.name !== 'undefined') {
+          %>
+          <%=authorUser.profile.name%>
+          <%}else{%>
+          <%=authorUser.email%>
+          <%}%>
+          </h4>
+        <p   class="ng-binding"><%=authorUser.profile.description%> </p>
+          <follow-btn class="ng-isolate-scope ng-hide">
+            <a style="background-color: #FFC1B4 !important;" href="/"
+              class="btn btn-sm action-btn ng-binding btn-outline-secondary">
+              <i class="ion-plus-round"></i>
+              &nbsp;
+              Follow
+
+              <%
+          if (typeof authorUser.profile.name !== 'undefined') {
+          %>
+              <%=authorUser.profile.name%>
+              <%}else{%>
+              <%=authorUser.email%>
+              <%}%>
+          </a>
+          </follow-btn>
+          <%
+          if(flagUser===true)
+          {
+          %>
+              <a style="background-color: #FFC1B4 !important;" class="btn btn-sm btn-outline-secondary action-btn"
+                href="#/settings">
+                <i class="ion-gear-a"></i> Edit Profile Settings
+              </a>
+              <%}%>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="margin-top: 10px;">
+  <div class="row justify-content-between">
+    <div class="pr-3" style="width: 1200px;">
+      <h5 class="font-weight-bold spanborder"><span>All Stories of Author</span></h5>
+      <%
+        articles.forEach(function(Article) { 
+      %>
+              <div class="mb-3 d-flex justify-content-between">
+                <div class="pr-3" style="width: 1200px;">
+                  <h2 class="mb-1 h4 font-weight-bold">
+                    <a class="text-dark" href="/article/<%=Article._id%>"><%=Article.title%>
+                    </a>
+                  </h2>
+                  <p>
+                    <%=Article.description%>
+                  </p>
+                  <div class="card-text text-muted small">
+                    <a class="text-muted" href="/author/<%=Article.author._id%>">
+                      in <%=Article.caterogyID.categoryName%>
+                      · <%= moment(Article.createdAt).format( 'MMM-DD-YYYY') %> <%=Article.minRead%> min read
+                  </div>
+                </div>
+                <img height="80" width="128" src="../images/<%=Article.mainImage%>">
+              </div>
+              <%  } )%>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------
+FOOTER
+--------------------------------------->
+  <style>
+    .container {
+      max-width: 1200px;
+
+    }
+
+    .user-info {
+      background-color: rgba(255, 75, 68, 1) !important;
+      margin-top: 120px;
+      text-align: center;
+      background: #f3f3f3;
+      padding: 2rem 0 1rem;
+    }
+
+    .avatar {
+      display: block;
+      white-space: nowrap;
+      overflow: visible;
+      text-overflow: ellipsis;
+      line-height: normal;
+      position: relative;
+    }
+
+    .avatar-image {
+      display: inline-block;
+      vertical-align: middle;
+      -webkit-border-radius: 100%;
+      border-radius: 100%;
+      width: 80px;
+      height: 80px;
+    }
+  </style>
+  <%- include('../footer.ejs')%>

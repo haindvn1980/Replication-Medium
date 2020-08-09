@@ -1,0 +1,78 @@
+<%- include('../indexHeader.ejs')%>
+<!--------------------------------------
+ MAIN
+--------------------------------------->
+<div class="site-main surface-container" id="container">
+  <div class="butterBar butterBar--error" data-action-scope="_actionscope_1"></div>
+  <div class="surface" id="_obv.shell._surface_1592902710684" style="display: block; visibility: visible;">
+    <div class="screenContent surface-content" data-used="true" data-action-scope="_actionscope_2">
+      <div
+        class="metabar u-clearfix u-fixed u-backgroundTransparentWhiteDarkest u-xs-sizeFullViewportWidth u-xs-hide js-metabar">
+        <div class="branch-journeys-top"></div>
+        <div
+          class="js-metabarMiddle metabar-inner u-marginAuto u-maxWidth1032 u-flexCenter u-justifyContentSpaceBetween u-height65 u-xs-height56 u-paddingHorizontal20">
+          <div class="metabar-block u-flex1 u-flexCenter">
+            <div class="u-xs-show js-metabarLogoLeft"><a href="https://medium.com/" data-log-event="home"
+                class="siteNav-logo u-fillTransparentBlackDarker u-flex0 u-flexCenter u-paddingTop0"><span
+                  class="svgIcon svgIcon--logoMonogram svgIcon--45px"><svg class="svgIcon-use" width="45" height="45">
+                  </svg></span><span class="u-textScreenReader">Homepage</span></a></div>
+          </div>
+          <div
+            class="u-absolute u-top0 u-bottom0 u-left0 u-right0 u-flexCenter u-justifyContentCenter u-xs-hide js-metabarLogoCentered">
+            <a href="https://medium.com/" data-log-event="home" class="siteNav-logo u-fillTransparentBlackDarker"><span
+                class="svgIcon svgIcon--logoWordmark svgIcon--112x22px u-xs-hide u-flex"><svg class="svgIcon-use"
+                  height="22" width="112" viewBox="0 0 111.5 22">
+
+                </svg></span><span class="svgIcon svgIcon--logoWordmark svgIcon--122x45px u-xs-show u-flex"><svg
+                  class="svgIcon-use" width="122" height="45">
+                </svg></span><span class="u-textScreenReader">Homepage</span></a></div>
+        </div>
+      </div>
+      <div class="metabar metabar--spacer js-metabarSpacer u-heightAuto"></div>
+      <div class="u-minHeight100vh u-height100pct u-flexColumn u-flexCenter">
+        <div class="u-flex1 u-flexCenter u-marginTop75 u-marginBottom50 u-xs-sizeFullWidth u-xs-margin0 js-susiForm">
+          <section
+            class="uiScale uiScale-ui--regular uiScale-caption--regular u-backgroundColorWhite u-backgroundNoRepeat u-flexColumn u-height550 u-width900 u-borderBox u-borderRadius4 u-boxShadow2px10pxBlackLighter u-textAlignCenter u-padding50 u-xs-padding40 u-overflowHidden u-relative u-margin5 u-sm-width600 u-sm-heightAuto u-sm-backgroundImageNone u-xs-sizeFullWidth u-xs-absolute u-xs-top50pct u-xs-left50pct u-xs-transformXYNegative50pct u-xs-width95Pct u-xs-margin0"
+            style="background-image: url(https://cdn-images-1.medium.com/max/900/1*gnUBeL-INIVDk0_GyL8x1g.png); background-size: 100%;">
+            <h1 class="ui-brand2 u-width100pct u-maxWidth450 u-marginAuto u-marginBottom20 js-susiTitle">First, create
+              an account.</h1>
+            <h2 class="ui-body u-width100pct u-maxWidth360 u-marginAuto u-marginBottom25 js-susiSubtitle">Once you’ve
+              created your account, you’ll be able to upgrade for unlimited access to Medium.</h2>
+            <form action="signup" method="post">
+              <div class="u-width100pct u-maxWidth300 u-marginAuto u-xs-widthAuto js-loginOptions">
+                <%- include('../partials/flash.ejs')%>
+                <div class="u-xs-flexColumn u-xs-alignItemsCenter js-susiButtons">
+                  <input type="email" name="email" autocomplete="email" required="true" minlength="5"
+                    placeholder="Email - as username"
+                    class="button button--large button--withChrome u-baseColor--buttonNormal button--withIcon button--withSvgIcon button--withIconAndLabel u-boxShadow u-textAlignLeft u-marginBottom15 u-backgroundWhite u-textColorDarker u-sm-width220 u-sm-marginRight20 u-xs-marginRight0 u-width100pct js-googleButton" />
+                  <input type="password" name="password" required="true" minlength="6" placeholder="Password"
+                    class="button button--large button--withChrome u-baseColor--buttonNormal button--withIcon button--withSvgIcon button--withIconAndLabel u-boxShadow u-textAlignLeft u-marginBottom15 u-backgroundWhite u-textColorDarker u-sm-width220 u-sm-marginRight20 u-xs-marginRight0 u-width100pct js-googleButton" />
+                  <input type="password" name="confirmPassword" required="true" minlength="6"
+                    placeholder="Confirm Password"
+                    class="button button--large button--withChrome u-baseColor--buttonNormal button--withIcon button--withSvgIcon button--withIconAndLabel u-boxShadow u-textAlignLeft u-marginBottom15 u-backgroundWhite u-textColorDarker u-sm-width220 u-sm-marginRight20 u-xs-marginRight0 u-width100pct js-googleButton" />
+                  <button style=" float: left;width: 100%;"
+                    class="br bt bu button button--large button--withChrome u-baseColor--buttonNormal button--withIcon button--withSvgIcon button--withIconAndLabel u-boxShadow   ">
+                    <span class="button-label  js-buttonLabel"><i class="fas fa-user-plus fa-sm">&nbsp;</i>Sign
+                      up</span></button>
+                </div>
+              </div>
+            </form>
+            <div class="uiScale uiScale-ui--small uiScale-caption--regular u-marginTop10"><span
+                class="u-fontSize16 u-textColorDarker">Already have an account?</span>
+              <a href="/login"
+                class="button button--primary button--chromeless u-accentColor--buttonNormal js-switchFlow u-fontSize16 u-fontWeightBold">Sign
+                in</a>
+              <div class="ui-body u-maxWidth400 u-marginAuto u-marginTop60">To make Medium work, we log user data and
+                share it with service providers. Click “Sign up” above to accept Medium’s <a
+                  class="ds-link ds-link--styleObvious" href="/">Terms of
+                  Service</a> &amp; <a class="ds-link ds-link--styleObvious" href="/">Privacy
+                  Policy</a>.</div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../footer.ejs')%>

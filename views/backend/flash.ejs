@@ -1,0 +1,22 @@
+<% if(messages.errors) { %>
+<div class="alert alert-danger fade show" role="alert">
+  <% for(var i=0 ;i< messages.errors.length;i++ ) {%>
+  <div style="min-height: 20px;"><%=messages.errors[i].msg %></div>
+  <%}%>
+</div>
+<%} %>
+
+  <% if(messages.info) { %>
+  <div class="alert alert-info fade show" role="alert">
+    <% for(var i=0 ;i< messages.info.length;i++ ) {%>
+    <div style="min-height: 20px;"><%=messages.info[i].msg %></div>
+    <%}%>
+</div>
+<%} %>
+    <% if(messages.success) { %>
+    <div class=" alert alert-success fade show" role="alert">
+      <% for(var i=0 ;i< messages.success.length;i++ ) {%>
+      <div style="min-height: 20px;"><%=messages.success[i].msg %></div>
+      <%}%>
+</div>
+<%} %>

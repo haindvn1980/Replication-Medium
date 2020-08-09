@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/png"
+    href="https://cdn-static-1.medium.com/_/fp/icons/favicon-rebrand-medium.3Y6xpZ-0FSdWDnPM3hSBIA.ico">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title><%=title%></title>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <!-- Main CSS -->
+
+  <link href="/assets/css/main.css" rel="stylesheet" />
+  <link href="/assets/css/login.css" rel="stylesheet" />
+  <link href="/assets/css/medium.css" rel="stylesheet" />
+  <link href="/assets/css/m2.css" rel="stylesheet" />
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <script>
+
+    $(document).ready(function () {
+
+      $('#ClickAnh').click(function () {
+        $('#showmenu').slideToggle("fast");
+      });
+
+    });
+
+
+  </script>
+</head>
+
+<body id="hideMenus">
+  <!--------------------------------------
+NAVBAR
+--------------------------------------->
+  <nav class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="/home"><strong>Medium</strong></a>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02"
+        aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse" id="navbarColor02">
+        <ul class="navbar-nav mr-auto d-flex align-items-center">
+
+          <%
+          let categories = locals.categories;
+          categories.forEach(function(category){ %>
+          <li class="nav-item">
+            <a class="nav-link" href="/category/<%=category._id%>"><%=category.categoryName%></a>
+          </li>
+          <%}) %>
+        </ul>
+        <ul class="navbar-nav ml-auto d-flex align-items-center">
+          <li class="nav-item highlight">
+            <div class="metabar-block u-flex0">
+              <div class="buttonSet buttonSet--wide">
+
+                <label
+                  class="button button--small button--chromeless button--withIcon button--withSvgIcon inputGroup u-sm-hide metabar-predictiveSearch u-baseColor--buttonNormal u-baseColor--placeholderNormal"
+                  title="Search Medium" onclick="location.href = '<%=locals.link%>/search/1'">
+                  <span class="svgIcon svgIcon--search svgIcon--25px u-baseColor--iconLight">
+                    <svg style="margin-top:5px" class="svgIcon-use" width="25" height="25">
+                      <path
+                        d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z">
+                      </path>
+                    </svg>
+                  </span>
+                </label>
+
+                <a class="button button--small button--chromeless u-sm-show is-inSiteNavBar u-baseColor--buttonNormal button--withIcon button--withSvgIcon button--chromeless u-xs-top1"
+                  href="/search" title="Search" aria-label="Search"><span class="button-defaultState"><span
+                      class="svgIcon svgIcon--search svgIcon--25px">
+                      <svg class="svgIcon-use" width="25" height="25">
+                        <path
+                          d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z">
+                        </path>
+                      </svg></span></span></a>
+
+                <a class="button button--small button--chromeless is-inSiteNavBar u-baseColor--buttonNormal button--withIcon button--withSvgIcon button--chromeless u-xs-hide"
+                  href="/queue" title="Bookmarks" aria-label="Bookmarks"><span class="button-defaultState"><span
+                      class="svgIcon svgIcon--bookmarkStack svgIcon--25px"><svg class="svgIcon-use" width="25"
+                        height="25">
+                        <path
+                          d="M16 6c1.1 0 2 .9 2 2v13.661h-.012a.5.5 0 0 1-.118.285.508.508 0 0 1-.708.03L11.5 17.85l-5.662 4.125a.5.5 0 0 1-.706-.03.478.478 0 0 1-.12-.285H5V8c0-1.1.9-2 2-2h9zM6 8v12.636l5.162-3.667a.49.49 0 0 1 .676 0L17 20.637V8c0-.55-.45-1-1-1H7c-.55 0-1 .45-1 1z">
+                        </path>
+                        <path
+                          d="M21 5v13.661h-.012a.5.5 0 0 1-.118.285.508.508 0 0 1-.708.03L20 18.858V5c0-.55-.45-1-1-1h-9c-.55 0-1 .45-1 1H8c0-1.1.9-2 2-2h9c1.1 0 2 .9 2 2z">
+                        </path>
+                      </svg></span></span></a>
+                <button
+                  class="button button--small button--chromeless is-inSiteNavBar u-baseColor--buttonNormal button--withIcon button--withSvgIcon button--activity js-notificationsButton u-marginRight16 u-xs-marginRight10 u-lineHeight0 u-size25x25"
+                  title="Notifications" aria-label="Notifications" data-action="open-notifications"><span
+                    class="svgIcon svgIcon--bell svgIcon--25px"><svg class="svgIcon-use" width="25" height="25"
+                      viewBox="-293 409 25 25">
+                      <path
+                        d="M-273.327 423.67l-1.673-1.52v-3.646a5.5 5.5 0 0 0-6.04-5.474c-2.86.273-4.96 2.838-4.96 5.71v3.41l-1.68 1.553c-.204.19-.32.456-.32.734V427a1 1 0 0 0 1 1h3.49a3.079 3.079 0 0 0 3.01 2.45 3.08 3.08 0 0 0 3.01-2.45h3.49a1 1 0 0 0 1-1v-2.59c0-.28-.12-.55-.327-.74zm-7.173 5.63c-.842 0-1.55-.546-1.812-1.3h3.624a1.92 1.92 0 0 1-1.812 1.3zm6.35-2.45h-12.7v-2.347l1.63-1.51c.236-.216.37-.522.37-.843v-3.41c0-2.35 1.72-4.356 3.92-4.565a4.353 4.353 0 0 1 4.78 4.33v3.645c0 .324.137.633.376.85l1.624 1.477v2.373z">
+                      </path>
+                    </svg></span></button>
+                <a class="button button--small button--upsellNav button--withChrome u-baseColor--buttonNormal u-xs-hide js-upgradeMembershipAction"
+                  href="/upgrade" data-disable-client-nav="true" data-scroll="native">Upgrade</a>
+
+                <button id="ClickAnh"
+                  class="button button--chromeless u-baseColor--buttonNormal is-inSiteNavBar js-userActions is-touched"
+                  aria-haspopup="true" data-action="open-userActions">
+                  <div class="avatar">
+                    <img src="../images/<%=locals.user.profile.picture%>" class="avatar-image avatar-image--icon"
+                      alt=" " style="width: 32px;height: 32px;">
+                  </div>
+                </button>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <div id="showmenu"
+          class=" popover js-popover popover--menu popover--userActions popover--globalNav u-resetSpectrum popover--bottom u-fixed is-active"
+          data-action-scope="_actionscope_13"
+          style="display:none;  left: 1080px; top: 48.5px; border: none; box-sizing: border-box; width: 260px; height: 385px;">
+          <div class="popover-inner js-popover-inner" style="height: 375px;">
+            <ul role="menu" class="list list--borderless list--short list--large">
+              <li class="list-item u-paddingTop25 u-paddingHorizontal25 u-paddingBottom10">
+                <div class="u-flexCenter">
+                  <div class="u-flex0">
+                    <div class="avatar"><img src="../images/<%=locals.user.profile.picture%>"
+                        class="avatar-image u-size50x50 u-xs-size40x40"></div>
+                  </div>
+                  <div class="u-flex1 u-paddingLeft15 u-fontSize14">
+                    <div class="u-fontWeightBold"><a
+                        class="link link--darker link--darken u-accentColor--textDarken u-baseColor--link u-normalWrap"
+                        href="https://medium.com/@haindvn" title="Go to the profile of Nguyễn Đức Hải"
+                        aria-label="Go to the profile of Nguyễn Đức Hải" data-user-id="555765cc4479" dir="auto">
+                        <%=locals.user.profile.name%>
+                      </a></div>
+                    <div> </div>
+                  </div>
+                </div>
+              </li>
+              <li class="list-item list-item--separator"></li>
+              <li class="list-item u-padding0"><a class="button button--dark button--chromeless u-baseColor--buttonDark"
+                  href="/account" tabindex="-1" role="menuitem">Update profile</a></li>
+              <li class="list-item list-item--separator"></li>
+              <li class="list-item u-padding0"><a
+                  class="button button--primary button--dark button--chromeless u-accentColor--buttonDark js-upgradeMembershipAction"
+                  href="/member" tabindex="-1" role="menuitem" data-disable-client-nav="true"
+                  data-scroll="native">Become a member</a></li>
+              <li class="list-item list-item--separator"></li>
+              <li class="list-item u-padding0"><a class="button button--dark button--chromeless u-baseColor--buttonDark"
+                  href="/newarticle" tabindex="-1" role="menuitem">New story</a></li>
+              <li class="list-item list-item--separator"></li>
+              <li class="list-item u-padding0"><a class="button button--dark button--chromeless u-baseColor--buttonDark"
+                  href="/stories/drafts" tabindex="-1" role="menuitem">Stories</a></li>
+              <li class="list-item list-item--separator"></li>
+              <li class="list-item u-padding0"><a class="button button--dark button--chromeless u-baseColor--buttonDark"
+                  href="/logout" tabindex="-1" role="menuitem">Logout</a></li>
+            </ul>
+          </div>
+          <div class="popover-arrow" style="left: 130px;"></div>
+        </div>
+
+
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->

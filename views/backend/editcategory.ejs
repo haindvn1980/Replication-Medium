@@ -1,0 +1,48 @@
+<%-include('./header.ejs')%>
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800">Categories » Edit Category</h1>
+  <div style="margin-top: 50px;">
+  </div>
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Add New Category | <a href="/admin/listcategory">List Categories</a>
+      </h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <form method="POST">
+          <div class="u-width100pct u-maxWidth300 u-marginAuto u-xs-widthAuto js-loginOptions">
+            <%- include('./flash.ejs')%>
+            <div class="form-group">
+              <label for="xx">Category Name</label>
+              <input type="text" value="<%=category.categoryName%>" name="categoryName" size="200" required="true"
+                placeholder="Input Category" class="form-control form-control-user" />
+            </div>
+            <div class="form-group">
+              <label for="xx">Order</label>
+              <input type="number" value="<%=category.Order%>" name="Order" size="200" required="true" minlength="1"
+                placeholder="Input Order" class="form-control form-control-user" />
+            </div>
+            <div class="form-group">
+              <button type="submit" style=" float: left;width: 345px;" class="btn btn-primary btn-user btn-block">
+                <span class="button-label  js-buttonLabel"><i class="fa fa-pencil-square-o"
+                    aria-hidden="true"></i>&nbsp;Edit</span></button>
+              &nbsp;
+              <button type="button" style=" float: left;margin-left: 10px;margin-top: 0px;width: 345px;"
+                class="btn btn-primary btn-user btn-block" onclick="window.history.back();">
+                <span class="button-label  js-buttonLabel"><i class="fa fa-arrow-left"
+                    aria-hidden="true"></i>&nbsp;back</span></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End of Main Content -->
+<%-include('./footer.ejs')%>

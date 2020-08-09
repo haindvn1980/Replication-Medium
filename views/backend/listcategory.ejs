@@ -1,0 +1,67 @@
+<%-include('./header.ejs')%>
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800">Posts » List Categories</h1>
+  <div style="margin-top: 50px;">
+  </div>
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">List Categories | <a href="/admin/addcategory">Add New Category</a>
+      </h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Index</th>
+              <th>Name</th>
+              <th>Order</th>
+              <th>Start date</th>
+              <th>End date</th>
+              <th>Status</th>
+              <th><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-trash"
+                  aria-hidden="true"></i>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% 
+            var i=1;
+            categories.forEach(function(category) { %>
+            <tr>
+              <td><%=i%></td>
+              <td><%=category.categoryName%></td>
+              <td><%=category.Order%></td>
+              <td><%=category.startDate.toLocaleString('fr-FR')%></td>
+              <td><% if(category.endDate!==null) { %>
+                <%=category.endDate.toLocaleString('fr-FR')%>
+                <% }%></td>
+              <td>
+                <% if(category.status==false){ %>
+                <a href="/admin/updatecategory/<%=category._id%>"> Deleted</a>
+                <% }else { %>
+                Active
+                <% }%>
+              </td>
+              <td><a href="/admin/editcategory/<%=category._id%>"><i class="fa fa-pencil-square-o"
+                    aria-hidden="true"></i></a>&nbsp;
+                <a href="/admin/deletecategory/<%=category._id%>" onclick="confirm('Do you want to delete?')"><i
+                    class="fa fa-trash" aria-hidden="true"></i></a>
+              </td>
+            </tr>
+            <% i++; }); %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- /.container-fluid -->
+<!-- End of Main Content -->
+<%-include('./footer.ejs')%>

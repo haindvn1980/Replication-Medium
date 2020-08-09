@@ -1,0 +1,143 @@
+<%- include('./header.ejs')%>
+<!--------------------------------------
+HEADER
+--------------------------------------->
+<div class="container">
+  <div class="jumbotron jumbotron-fluid mb-3 pt-0 pb-0 bg-lightblue position-relative">
+    <%
+    if (typeof favoritesTopFive[0] !== 'undefined') {
+    %>
+    <div class="pl-4 pr-0 h-100 tofront">
+      <div class="row justify-content-between">
+        <div class="col-md-6 pt-6 pb-6 align-self-center">
+          <h1 class="secondfont mb-3 font-weight-bold"><%=favoritesTopFive[0].title%>
+          </h1>
+          <p class="mb-3">
+            <%=favoritesTopFive[0].description%>
+          </p>
+          <a href="/article/<%=favoritesTopFive[0]._id%>" class="btn btn-dark">Read More</a>
+        </div>
+        <div class="col-md-6 d-none d-md-block pr-0"
+          style="background-size:cover;background-image:url(./images/<%=favoritesTopFive[0].mainImage%>);"> </div>
+      </div>
+    </div>
+    <%}%>
+  </div>
+</div>
+<!-- End Header -->
+<!--------------------------------------
+MAIN
+--------------------------------------->
+<div class="container pt-4 pb-4">
+  <div class="row">
+    <%
+    if (typeof favoritesTopFive[1] !== 'undefined') {
+    %>
+    <div class="col-lg-6">
+      <div class="card border-0 mb-4 box-shadow h-xl-300">
+        <div style="background-image: url(./images/<%=favoritesTopFive[1].mainImage%>); height: 150px; background-size:
+    cover; background-repeat: no-repeat;">
+        </div>
+        <div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
+          <h2 class="h4 font-weight-bold">
+            <a class="text-dark" href="/article/<%=favoritesTopFive[1]._id%>"><%=favoritesTopFive[1].title%></a>
+          </h2>
+          <p class="card-text">
+            <%=favoritesTopFive[1].description%>
+          </p>
+          <div>
+            <small class="d-block"><a class="text-muted"
+                href="/author/<%=favoritesTopFive[1].author._id%>"><%=favoritesTopFive[1].author.profile.name%></a> in
+              <%=favoritesTopFive[1].caterogyID.categoryName%>
+              · <%= moment(favoritesTopFive[1].createdAt).format( 'MMM-DD-YYYY') %> · <%=favoritesTopFive[1].minRead%>
+              min read</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%}%>
+<div class="col-lg-6">
+  <div class="flex-md-row mb-4 box-shadow h-xl-300">
+    <%
+        var i=0;
+        favoritesTopFive.forEach(function(favorites) { 
+          if(i>1){
+        %>
+    <div class="mb-3 d-flex align-items-center">
+      <img height="80" width="128" src="./images/<%=favorites.mainImage%>">
+      <div class="pl-3">
+        <h2 class="mb-2 h6 font-weight-bold">
+          <a class="text-dark" href="/article/<%=favorites._id%>"><%=favorites.title%></a>
+        </h2>
+        <div class="card-text text-muted small">
+          <%=favorites.description%>
+        </div>
+        <small class="text-muted">
+          <a class="text-muted" href="/author/<%=favorites.author._id%>"> <%=favorites.author.profile.name%></a> in
+          <%=favorites.caterogyID.categoryName%>
+          · <%= moment(favorites.createdAt).format( 'MMM-DD-YYYY') %> · <%=favorites.minRead%>
+          min read</small>
+      </div>
+    </div>
+
+    <% } i++; } )%>
+  </div>
+</div>
+</div>
+</div>
+<div class="container">
+  <div class="row justify-content-between">
+    <div class="col-md-8">
+      <h5 class="font-weight-bold spanborder"><span>All Stories</span></h5>
+      <%
+        var i=0;
+        Articles.forEach(function(Article) { 
+      %>
+      <div class="mb-3 d-flex justify-content-between">
+        <div class="pr-3">
+          <h2 class="mb-1 h4 font-weight-bold">
+            <a class="text-dark" href="/article/<%=Article._id%>"><%=Article.title%>
+            </a>
+          </h2>
+          <p>
+            <%=Article.description%>
+          </p>
+          <div class="card-text text-muted small">
+            <a class="text-muted" href="/author/<%=Article.author._id%>"><%=Article.author.profile.name%> </a> in
+            <%=Article.caterogyID.categoryName%>
+            · <%= moment(Article.createdAt).format( 'MMM-DD-YYYY') %> · <%=Article.minRead%> min read
+          </div>
+        </div>
+        <img height="120" width="175" src="./images/<%=Article.mainImage%>">
+      </div>
+      <div style="width: 100%;">
+        <hr>
+      </div>
+      <% i++; } )%>
+    </div>
+    <div class="col-md-4 pl-4">
+      <h5 class="font-weight-bold spanborder"><span>Popular</span></h5>
+      <ol class="list-featured">
+        <%
+        articleByGroup.forEach(function(Article) { 
+      %>
+        <li>
+          <span>
+            <h6 class="font-weight-bold">
+              <a href="/article/<%=Article._id%>" class="text-dark"><%=Article.title%></a>
+            </h6>
+            <p class="text-muted">
+              <%=Article.author.profile.name%> </a> in
+              <%=Article.caterogyID.categoryName%>
+            </p>
+          </span>
+        </li>
+        <%   } )%>
+      </ol>
+    </div>
+  </div>
+</div>
+<!--------------------------------------
+FOOTER
+--------------------------------------->
+<%- include('./footer.ejs')%>

@@ -1,0 +1,43 @@
+<%- include('../header.ejs')%>
+<!--------------------------------------
+HEADER
+--------------------------------------->
+<div class="container" style="margin-top: 120px;height: auto;">
+  <p>
+  <h1>Tags list</h1>
+  </p>
+  <hr style=" border: 5px solid green;  border-radius: 2px;">
+  <div>
+    <p>
+    <div style="padding: 2px;">
+      <%
+      articles.forEach(function(article) { 
+      %>
+      <div class="mb-3 d-flex justify-content-between">
+        <div class="pr-3">
+          <h2 class="mb-1 h4 font-weight-bold">
+            <a class="text-dark" href="/article/<%=article._id%>"><%=article.title%></a>
+          </h2>
+          <p>
+            <%=article.description%>
+          </p>
+          <div class="card-text text-muted small">
+          </div>
+          <small class="text-muted">
+            <%=article.author.profile.name%> in <%=article.caterogyID.categoryName.toUpperCase()%>
+            &nbsp;&nbsp;<%= moment(article.createdAt).format( 'MMM-DD-YYYY') %> · <%=article.minRead%> min
+            read</small>
+        </div>
+        <img height="120" width="180" src="../images/<%=article.mainImage%>">
+      </div>
+      <hr style="border-top: 1px dashed red;">
+      <%  } )%>
+
+    </div>
+    </p>
+  </div>
+</div>
+<!--------------------------------------
+FOOTER
+--------------------------------------->
+<%- include('../footer.ejs')%>

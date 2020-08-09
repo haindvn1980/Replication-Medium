@@ -1,0 +1,76 @@
+<%- include('../header.ejs')%>
+<!--------------------------------------
+HEADER
+--------------------------------------->
+<div class="hero-unit" data-hero-unit="">
+  <div class="hero-bg" data-hero-bg="" style="transform: translate3d(0px, -10.3333px, 0px);"></div>
+  <div class="container-inner search-box search-box--hero-unit" data-search-box="" style="opacity: 0.907;">
+    <div class="intro-title">Hi. 👋 How can we help?</div>
+    <form class="search" action="/search/1" accept-charset="UTF-8" method="POST">
+      <input type="search" name="Search" placeholder="Search" aria-label="Search">
+      <input type="submit" name="commit" value="Search">
+    </form>
+  </div>
+</div>
+<div class="container" style="margin-top: 10px;">
+  <%
+  if( locals.articles)
+  {
+    %>
+  <div>
+    <p>
+    <h1>Search Results</h1>
+    </p>
+    <hr style=" border: 5px solid green;  border-radius: 2px;">
+    <p>
+      <%
+      articles.forEach(function(article) { 
+      %>
+    <div class="mb-3 d-flex justify-content-between">
+      <div class="pr-3">
+        <h2 class="mb-1 h4 font-weight-bold">
+          <a class="text-dark" href="/article/<%=article._id%>"><%=article.title%></a>
+        </h2>
+        <p>
+          <%=article.description%>
+        </p>
+        <div class="card-text text-muted small">
+        </div>
+        <small class="text-muted"><%= moment(article.createdAt).format( 'MMM-DD-YYYY') %> ·
+          <%=article.minRead%> min
+          read</small>
+      </div>
+      <img height="120" width="180" src="/../images/<%=article.mainImage%>">
+    </div>
+    <div style="width: 100%;">
+      <hr>
+    </div>
+    <%  } )
+      %>
+    </p>
+  </div>
+  <%}%>
+</div>
+<div class="container" style="margin-top: 10px;">
+  <div style="margin-bottom: 10px;margin-left: 20px;width: 100%; height: 30px;">
+    <%
+  for(var i=1;i<= locals.pages;i++){
+    if(parseInt(i)===parseInt(currentPage)){
+  %>
+  <a class="btn btn-info" style=" font-weight: bold; width: 40px;background-color: black;"
+    href="/search/<%= parseInt(i)%>/?search=<%=searchVal%>">
+    <%= parseInt(i) %>
+  </a>
+  <%}else{%>
+  <a class=" btn btn-info" style="width: 40px;background-color: #4e73df;"
+    href="/search/<%= parseInt(i)%>/?search=<%=searchVal%>">
+    <%= parseInt(i) %>
+  </a>
+  <%}
+  }%>
+</div>
+</div>
+<!--------------------------------------
+FOOTER
+--------------------------------------->
+<%- include('../footer.ejs')%>

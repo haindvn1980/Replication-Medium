@@ -1,0 +1,69 @@
+<%- include('../header.ejs')%>
+<!--------------------------------------
+HEADER
+--------------------------------------->
+<!-- Begin Page Content -->
+<div class="container-fluid" style="width: 84.8%;">
+  <!-- Page Heading -->
+  <div style="margin-top:100px;">
+  </div>
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Add New Story </a>
+      </h6>
+    </div>
+    <%- include('../partials/flash.ejs')%>
+    <div class="card-body" style="margin-left: 0px;width: 100%;">
+      <form method="POST" enctype="multipart/form-data">
+        <div class="u-width100pct  u-marginAuto u-xs-widthAuto js-loginOptions">
+          <div class="form-group">
+            <label class="font-weight-bold">Category Name</label>
+            <select class="form-control" name="category">
+              <% categories.forEach(function(category) { %>
+              <option value="<%= category._id %>"><%= category.categoryName %></option>
+              <% }); %>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="font-weight-bold">Article title</label>
+            <input type="text" name="title" size="200" required="true" placeholder="Article title"
+              class="form-control form-control-user" />
+          </div>
+          <div class="form-group">
+            <label class="font-weight-bold">Sub content</label>
+            <input type="text" name="description" size="200" required="true" placeholder="What's this article about?"
+              class="form-control form-control-user" />
+          </div>
+          <div class="form-group">
+            <label class="font-weight-bold">Main Image:</label> <br>
+            <input class="form-control" name="mainImage" type="file" />
+          </div>
+          <div class="form-group">
+            <label class="font-weight-bold">Main Content</label> <br>
+            <textarea class="form-control" name="bodyArticle" id="content" rows="20"
+              placeholder="Write your article (in markdown)"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="font-weight-bold">Tags</label>
+            <input type="text" name="tagList" size="200" placeholder="The tags are separated by characters ;"
+              class="form-control form-control-user" />
+          </div>
+          <div class="form-group">
+            <button type="submit" style=" float: left;width: 345px;" class="btn btn-primary btn-user btn-block">
+              <span class="button-label  js-buttonLabel"><i class="fa fa-plus">&nbsp;</i>Add New</span></button>
+          </div>
+        </div>
+        <script src="../ckeditor/ckeditor.js"></script>
+        <script>CKEDITOR.replace('bodyArticle');</script>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- End of Main Content -->
+
+<!--------------------------------------
+FOOTER
+--------------------------------------->
+<%- include('../footer.ejs')%>

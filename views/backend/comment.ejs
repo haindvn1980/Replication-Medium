@@ -1,0 +1,71 @@
+<%-include('./header.ejs')%>
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800">Article » List Comment</h1>
+  <div style="margin-top: 50px;">
+  </div>
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">List Comment </a>
+      </h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Index</th>
+              <th>Article Name</th>
+              <th>Comment</th>
+              <th>Author</th>
+              <th><i class="fa fa-trash" aria-hidden="true"></i>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% 
+            var i=1;
+            comments.forEach(function(comment) { %>
+            <tr>
+              <td><%=i%></td>
+              <td><%=comment.article.title%></td>
+              <td><%=comment.body%></td>
+              <td><%=comment.author.email%></td>
+              <td>
+                <a href="/admin/deletecomment/<%=comment._id%>" onclick=" confirm('Do you want to delete?')"><i
+                    class="fa fa-trash" aria-hidden="true"></i></a>
+              </td>
+            </tr>
+            <% i++; }); %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div style="margin-bottom: 10px;margin-left: 20px;width: 100%; height: 30px;">
+      <%
+    for(var i=1;i<=pages;i++){
+      if(parseInt(i)===parseInt(currentPage)){
+    %>
+      <a class="btn btn-info" style=" font-weight: bold; width: 40px;background-color: black;"
+        href="/admin/commentlist/<%= parseInt(i)%> ">
+        <%= parseInt(i) %>
+      </a>
+      <%}else{%>
+      <a class="btn btn-info" style="width: 40px;background-color: #4e73df;"
+        href="/admin/commentlist/<%= parseInt(i)%> ">
+        <%= parseInt(i) %>
+      </a>
+      <%}
+    }%>
+    </div>
+    <!-- PAGINATION -->
+    <div style="margin-bottom: 10px;margin-left: 10px;width: 100%; height: 30px;">
+    </div>
+  </div>
+
+  <!-- /.container-fluid -->
+  <!-- End of Main Content -->
+  <%-include('./footer.ejs')%>

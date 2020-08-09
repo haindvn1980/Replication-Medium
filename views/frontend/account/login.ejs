@@ -1,0 +1,107 @@
+<%- include('../indexHeader.ejs')%>
+<!--------------------------------------
+ MAIN
+--------------------------------------->
+<div class="site-main surface-container" id="container">
+  <div class="butterBar butterBar--error" data-action-scope="_actionscope_1"></div>
+  <div class="surface" id="_obv.shell._surface_1592902710684" style="display: block; visibility: visible;">
+    <div class="screenContent surface-content" data-used="true" data-action-scope="_actionscope_2">
+      <div
+        class="metabar u-clearfix u-fixed u-backgroundTransparentWhiteDarkest u-xs-sizeFullViewportWidth u-xs-hide js-metabar">
+        <div class="branch-journeys-top"></div>
+        <div
+          class="js-metabarMiddle metabar-inner u-marginAuto u-maxWidth1032 u-flexCenter u-justifyContentSpaceBetween u-height65 u-xs-height56 u-paddingHorizontal20">
+          <div class="metabar-block u-flex1 u-flexCenter">
+            <div class="u-xs-show js-metabarLogoLeft"><a href="/" data-log-event="home"
+                class="siteNav-logo u-fillTransparentBlackDarker u-flex0 u-flexCenter u-paddingTop0"><span
+                  class="svgIcon svgIcon--logoMonogram svgIcon--45px"><svg class="svgIcon-use" width="45" height="45">
+                  </svg></span><span class="u-textScreenReader">Homepage</span></a></div>
+          </div>
+          <div
+            class="u-absolute u-top0 u-bottom0 u-left0 u-right0 u-flexCenter u-justifyContentCenter u-xs-hide js-metabarLogoCentered">
+            <a href="/" data-log-event="home" class="siteNav-logo u-fillTransparentBlackDarker"><span
+                class="svgIcon svgIcon--logoWordmark svgIcon--112x22px u-xs-hide u-flex"><svg class="svgIcon-use"
+                  height="22" width="112" viewBox="0 0 111.5 22">
+
+                </svg></span><span class="svgIcon svgIcon--logoWordmark svgIcon--122x45px u-xs-show u-flex"><svg
+                  class="svgIcon-use" width="122" height="45">
+                </svg></span><span class="u-textScreenReader">Homepage</span></a></div>
+        </div>
+      </div>
+      <div class="metabar metabar--spacer js-metabarSpacer u-heightAuto"></div>
+      <div class="u-minHeight100vh u-height100pct u-flexColumn u-flexCenter">
+        <div class="u-flex1 u-flexCenter u-marginTop75 u-marginBottom50 u-xs-sizeFullWidth u-xs-margin0 js-susiForm">
+          <section
+            class="uiScale uiScale-ui--regular uiScale-caption--regular u-backgroundColorWhite u-backgroundNoRepeat u-flexColumn u-height550 u-width900 u-borderBox u-borderRadius4 u-boxShadow2px10pxBlackLighter u-textAlignCenter u-padding50 u-xs-padding40 u-overflowHidden u-relative u-margin5 u-sm-width600 u-sm-heightAuto u-sm-backgroundImageNone u-xs-sizeFullWidth u-xs-absolute u-xs-top50pct u-xs-left50pct u-xs-transformXYNegative50pct u-xs-width95Pct u-xs-margin0"
+            style="background-image: url(https://cdn-images-1.medium.com/max/900/1*gnUBeL-INIVDk0_GyL8x1g.png); background-size: 100%;">
+            <h1 class="ui-brand2 u-width100pct u-maxWidth450 u-marginAuto u-marginBottom20 js-susiTitle">Welcome back.
+            </h1>
+            <h2 class="ui-body u-width100pct u-maxWidth360 u-marginAuto u-marginBottom25 js-susiSubtitle">Sign in to get
+              personalized story recommendations, follow authors and topics you love, and interact with stories.</h2>
+            <form action="login" method="POST">
+              <div class="u-width100pct u-maxWidth300 u-marginAuto u-xs-widthAuto js-loginOptions">
+                <%- include('../partials/flash.ejs')%>
+                <div class="u-xs-flexColumn u-xs-alignItemsCenter js-susiButtons">
+                  <input type="email" name="email" autocomplete="email" required="true" minlength="5"
+                    placeholder="Email - username"
+                    class="button button--large button--withChrome u-baseColor--buttonNormal button--withIcon button--withSvgIcon button--withIconAndLabel u-boxShadow u-textAlignLeft u-marginBottom15 u-backgroundWhite u-textColorDarker u-sm-width220 u-sm-marginRight20 u-xs-marginRight0 u-width100pct js-googleButton" />
+                  <input type="password" name="password" required="true" minlength="6" placeholder="Mật khẩu"
+                    class="button button--large button--withChrome u-baseColor--buttonNormal button--withIcon button--withSvgIcon button--withIconAndLabel u-boxShadow u-textAlignLeft u-marginBottom15 u-backgroundWhite u-textColorDarker u-sm-width220 u-sm-marginRight20 u-xs-marginRight0 u-width100pct js-googleButton" />
+                  <button type="submit" style=" float: left;width: 120px;"
+                    class="br bt bu button button--large button--withChrome u-baseColor--buttonNormal button--withIcon button--withSvgIcon button--withIconAndLabel u-boxShadow ">
+                    <span class="button-label  js-buttonLabel"><i
+                        class="far fa-user fa-sm">&nbsp;</i>Login</span></button>
+                  <a class="btn btn-link" href="/forgot">Forgot your password?</a>
+                </div>
+              </div>
+            </form>
+            <div style="margin-top: 20px;"
+              class="u-width100pct u-maxWidth300 u-marginAuto u-xs-widthAuto js-loginOptions">
+              <div class="u-xs-flexColumn u-xs-alignItemsCenter js-susiButtons">
+                <button
+                  class="button button--large button--withChrome u-baseColor--buttonNormal button--withIcon button--withSvgIcon button--withIconAndLabel u-boxShadow u-textAlignLeft u-marginBottom15 u-backgroundWhite u-textColorDarker u-sm-width220 u-sm-marginRight20 u-xs-marginRight0 u-width100pct js-googleButton">
+                  <span class="svgIcon svgIcon--googleNew svgIcon--25px"><svg class="svgIcon-use" width="25"
+                      height="25">
+                      <g fill="none" fill-rule="evenodd">
+                        <path
+                          d="M20.66 12.693c0-.603-.054-1.182-.155-1.738H12.5v3.287h4.575a3.91 3.91 0 0 1-1.697 2.566v2.133h2.747c1.608-1.48 2.535-3.65 2.535-6.24z"
+                          fill="#4285F4"></path>
+                        <path
+                          d="M12.5 21c2.295 0 4.22-.76 5.625-2.06l-2.747-2.132c-.76.51-1.734.81-2.878.81-2.214 0-4.088-1.494-4.756-3.503h-2.84v2.202A8.498 8.498 0 0 0 12.5 21z"
+                          fill="#34A853"></path>
+                        <path
+                          d="M7.744 14.115c-.17-.51-.267-1.055-.267-1.615s.097-1.105.267-1.615V8.683h-2.84A8.488 8.488 0 0 0 4 12.5c0 1.372.328 2.67.904 3.817l2.84-2.202z"
+                          fill="#FBBC05"></path>
+                        <path
+                          d="M12.5 7.38c1.248 0 2.368.43 3.25 1.272l2.437-2.438C16.715 4.842 14.79 4 12.5 4a8.497 8.497 0 0 0-7.596 4.683l2.84 2.202c.668-2.01 2.542-3.504 4.756-3.504z"
+                          fill="#EA4335"></path>
+                      </g>
+                    </svg></span><span class="button-label  js-buttonLabel">Sign in with Google</span></button>
+
+                <button
+                  class="button button--large button--withChrome u-baseColor--buttonNormal button--withIcon button--withSvgIcon button--withIconAndLabel u-boxShadow u-textAlignLeft u-marginBottom15 u-backgroundWhite u-textColorDarker u-sm-width220 u-sm-marginRight20 u-xs-marginRight0 u-width100pct js-facebookButton">
+                  <span class="svgIcon svgIcon--facebookSquare svgIcon--25px svgIcon--facebookBlue"><svg
+                      class="svgIcon-use" width="25" height="25">
+                      <path
+                        d="M20.292 4H4.709A.709.709 0 0 0 4 4.708v15.584c0 .391.317.708.709.708h8.323v-6.375h-2.125v-2.656h2.125V9.844c0-2.196 1.39-3.276 3.348-3.276.938 0 1.745.07 1.98.1v2.295h-1.358c-1.066 0-1.314.507-1.314 1.25v1.756h2.656l-.531 2.656h-2.125L15.73 21h4.562a.708.708 0 0 0 .708-.708V4.708A.708.708 0 0 0 20.292 4"
+                        fill-rule="evenodd"></path>
+                    </svg></span><span class="button-label  js-buttonLabel">Sign in with
+                    Facebook</span></button>
+
+              </div>
+            </div>
+
+            <div class="uiScale uiScale-ui--small uiScale-caption--regular u-marginTop10"><span
+                class="u-fontSize16 u-textColorDarker">No account?</span>
+              <a href="/signup"
+                class="button button--primary button--chromeless u-accentColor--buttonNormal js-switchFlow u-fontSize16 u-fontWeightBold">
+                Create one</a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../footer.ejs')%>
